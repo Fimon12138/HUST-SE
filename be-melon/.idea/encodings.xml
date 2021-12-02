@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fdfs-cli/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/melon-activity/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/melon-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/melon-message/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/melon-post/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/melon-user/src/main/java" charset="UTF-8" />
+  </component>
+</project>

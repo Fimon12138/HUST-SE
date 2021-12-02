@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+
+    environment {
+        VERSION_ID="${BUILD_ID}"
+
+        GIT_REPOSITORY="git@gitee.com:fimon_lu/be-server-melon.git"
+        CREDENTIALS_ID="624706ce-7dc0-43c7-a6a7-f31e3114565c"
+    }
+
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                echo "----- clean workdir: ${WORKSPACE} -----"
+                deleteDir()
+            }
+        }
+        stage ("Fetch Code") {
+            steps {
+                echo "----- git pull, branch: ${branch_name} -----"
+                git branch: "${branch_name}", credentialsId: "${CREDENTIALS_ID}", url: "${GIT_REPOSITORY}"
+            }
+        }
+        stage ("Packaging") {
+            steps {
+                echo "----- start packaging module ${module_name} -----"
+                sh "mvn clean package -pl ${module_name} -am -Dmaven.test.skip=true"
+            }
+        }
+        stage ("Create Image") {
+            steps {
+                echo "----- start creating image -----"
+                sh "bash CreateImage.sh ${module_name} ${VERSION_ID}"
+            }
+        }
+        stage ("Push Image") {
+            steps {
+                echo "----- start pushing image -----"
+                sh "bash PushImage.sh ${module_name} ${VERSION_ID}"
+            }
+        }
+        stage ("Deploy") {
+            steps {
+                echo "----- start deploying -----"
+                sh "bash Deploy.sh ${module_name} ${VERSION_ID} ${machine_id} ${port} ${profiles}"
+            }
+        }
+    }
+
+}

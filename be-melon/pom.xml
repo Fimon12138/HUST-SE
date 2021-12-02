@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<modules>
+		<module>auth</module>
+		<module>common</module>
+		<module>fdfs-cli</module>
+		<module>melon-activity</module>
+		<module>melon-gateway</module>
+		<module>melon-message</module>
+		<module>melon-post</module>
+		<module>melon-user</module>
+	</modules>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.10.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.bs.melon</groupId>
+	<artifactId>melon</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>melon</name>
+	<description>毕设后端项目</description>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>alimaven</id>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- mybatis -->
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>2.1.3</version>
+			</dependency>
+
+			<!-- swagger -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.9.2</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.xiaoymin</groupId>
+				<artifactId>swagger-bootstrap-ui</artifactId>
+				<version>1.9.6</version>
+			</dependency>
+
+			<!-- JWT依赖 -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>0.9.0</version>
+			</dependency>
+
+			<!-- FastDFS -->
+			<dependency>
+				<groupId>net.oschina.zcx7878</groupId>
+				<artifactId>fastdfs-client-java</artifactId>
+				<version>1.27.0.0</version>
+			</dependency>
+
+			<!-- spring cloud -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Hoxton.SR8</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<!-- spring cloud alibaba -->
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-alibaba-dependencies</artifactId>
+				<version>2.2.5.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>1.2.75</version>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<!--默认关掉单元测试 -->
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>

@@ -1,0 +1,19 @@
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/melon_message
+        username: root
+        password: root
+    kafka:
+        producer:
+            bootstrap-servers: 121.43.141.217:9092
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.apache.kafka.common.serialization.StringSerializer
+        consumer:
+            bootstrap-servers: 121.43.141.217:9092
+            key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+            value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+mybatis:
+    configuration:
+        map-underscore-to-camel-case: true

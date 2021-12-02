@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/activity/pom.xml" />
+        <option value="$PROJECT_DIR$/common/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/user/pom.xml" />
+        <option value="$PROJECT_DIR$/auth/pom.xml" />
+        <option value="$PROJECT_DIR$/message/pom.xml" />
+        <option value="$PROJECT_DIR$/melon-activity/pom.xml" />
+        <option value="$PROJECT_DIR$/melon-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/melon-message/pom.xml" />
+        <option value="$PROJECT_DIR$/melon-user/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,116 @@
+pipeline {
+    agent any
+
+    tools {
+        maven: 'Maven'
+    }
+
+    environment {
+        VERSION_ID="${BUILD_ID}"
+
+        REGISTRY_URL="registry.cn-hangzhou.aliyuncs.com"
+        REGISTRY_NAMESPACE="fimon"
+        REGISTRY_USERNAME="fimonlu"
+        REGISTRY_PASSWORD="Lyh990527"
+    }
+
+    parameters {
+
+        gitParameter    description: "选择分支",
+                        branch: '',
+                        branchFilter: '.*',
+                        defaultValue: 'origin/master',
+                        description: '',
+                        listSize: '0',
+                        name: 'branch_name',
+                        quickFilterEnabled: false,
+                        selectedValue: 'NONE',
+                        sortMode: 'NONE',
+                        tagFilter: '*',
+                        type: 'PT_BRANCH'
+
+        choice          description: '选择模块名',
+                        name: 'module_name',
+                        choices: ['melon-gateway', 'melon-user', 'melon-post', 'melon-activity',
+                                    'melon-message', 'fdfs-cli'],
+                        defaultValue: 'melon-gateway'
+
+        choice          description: "选择环境",
+                        name: "env",
+                        choices: ['dev', 'prod'],
+                        defaultValue: 'prod'
+
+        choice          description: '选择服务器',
+                        name: 'machine_name',
+                        choices: ['UCloud-4-16', 'Aliyun-2-2'],
+                        defaultValue: 'UCloud-4-16'
+
+    }
+
+    stages {
+        stage('Clean Workspace') {         //清理工作目录
+            steps {
+                echo "clean workdir: ${WORKSPACE}"
+                deleteDir()
+            }
+        }
+        stage ("Fetch Code") {
+            steps {
+                echo "git pull, branch: ${branch_name}"
+                git branch: '${branch_name}', credentialsId: '624706ce-7dc0-43c7-a6a7-f31e3114565c', url: 'git@gitee.com:fimon_lu/be-server-melon.git'
+            }
+        }
+        stage ("Packaging") {
+            steps {
+                echo "start packaging module ${module_name}..."
+                mvn clean package -pl ${module_name} -am -Dmaven.test.skip=true
+            }
+        }
+        stage ("Create Image") {
+            steps {
+                echo "start create image..."
+                sh '''
+                    # 获取已经存在的镜像的 id
+                    old_image_id=`docker images|grep ${module_name}|grep ${VERSION_ID}|awk '{print $3}'`
+                    # 删除存在的镜像
+                    if [[ -n "${old_image_id}" ]]; then
+                        docker rmi -f ${old_image_id}
+                    fi
+
+                    # 复制文件至指定目录并重命名
+                    cp ${WORKSPACE}/${module_name}/target/${module_name}-0.0.1-SNAPSHOT.jar /bs/${module_name}/${module_name}.jar
+                    cp ${WORKSPACE}/${module_name}/Dockerfile /bs/${module_name}
+
+                    cd /bs/${module_name}
+                    # 通过项目根目录下的Dokcerfile来构建镜像 -f filename --build-arg <key=value> 给Dockerfile传递参数
+                    # -t 镜像的名称:版本，这里使用jenkins的构建次数
+                    # 镜像名和项目名同名
+                    docker build -t ${module_name}:${VERSION_ID} .
+                '''
+            }
+        }
+        stage ("Push Image") {
+            echo "start pushing image..."
+            sh '''
+                # 登录镜像仓库
+                docker login --username=${REGISTRY_USERNAME} --password=${REGISTRY_PASSWORD}  ${REGISTRY_URL}'
+
+                # 获取构建好的镜像的id
+                new_image_id=`docker images|grep ${module_name}|grep ${VERSION_ID}|awk '{print $3}'`
+
+                # 根据生成的镜像，tag出一个名称空间不同的镜像（腾讯云能识别的镜像）
+                sudo docker tag ${new_image_id} ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${module_name}:${VERSION_ID}
+
+                # 将镜像仓库能够试别的镜像推送到仓库
+                sudo docker push ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${module_name}:${VERSION_ID}
+            '''
+        }
+        stage ("Deploy") {
+            echo "start deploy ..."
+            sh '''
+                bash /bs/deploy/Deploy.sh ${machine_id} ${module_name} ${VERSION_ID}
+            '''
+        }
+    }
+
+}

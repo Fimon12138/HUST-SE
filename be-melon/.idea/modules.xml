@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/auth/auth.iml" filepath="$PROJECT_DIR$/auth/auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fdfs-cli/fdfs-cli.iml" filepath="$PROJECT_DIR$/fdfs-cli/fdfs-cli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melon.iml" filepath="$PROJECT_DIR$/melon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melon-activity/melon-activity.iml" filepath="$PROJECT_DIR$/melon-activity/melon-activity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melon-gateway/melon-gateway.iml" filepath="$PROJECT_DIR$/melon-gateway/melon-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melon-message/melon-message.iml" filepath="$PROJECT_DIR$/melon-message/melon-message.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melon-post/melon-post.iml" filepath="$PROJECT_DIR$/melon-post/melon-post.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melon-user/melon-user.iml" filepath="$PROJECT_DIR$/melon-user/melon-user.iml" />
+    </modules>
+  </component>
+</project>

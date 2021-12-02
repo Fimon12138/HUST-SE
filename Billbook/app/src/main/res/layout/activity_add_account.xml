@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AddAccountActivity">
+
+    <include layout="@layout/app_toolbar">
+
+    </include>
+
+    <TextView
+        android:id="@+id/tv_accountType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/zhanghuleixing"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/tv_xianjin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tianjiazhanghu"
+        android:textColor="@drawable/tv_text_selector"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar"
+        app:layout_constraintEnd_toEndOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
+        app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/tv_xianjin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:drawableTop="@drawable/layer_img_xianjin"
+        android:background="@drawable/tv_account_type_selector"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/xianjin"
+        android:textColor="@color/textPrimary"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_chuxuka"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_accountType"
+        app:layout_constraintBottom_toTopOf="@id/tv_weixinzhifu"/>
+
+    <TextView
+        android:id="@+id/tv_chuxuka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:drawableTop="@drawable/layer_img_chuxuka"
+        android:background="@drawable/tv_account_type_selector"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/chuxuka"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_xinyongka"
+        app:layout_constraintStart_toEndOf="@id/tv_xianjin"
+        app:layout_constraintTop_toTopOf="@id/tv_xianjin" />
+
+    <TextView
+        android:id="@+id/tv_xinyongka"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:drawableTop="@drawable/layer_img_xinyongka"
+        android:gravity="center"
+        android:background="@drawable/tv_account_type_selector"
+        android:includeFontPadding="false"
+        android:text="@string/xingyongka"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/tv_zhifubao"
+        app:layout_constraintStart_toEndOf="@id/tv_chuxuka"
+        app:layout_constraintTop_toTopOf="@id/tv_xianjin" />
+
+    <TextView
+        android:id="@+id/tv_zhifubao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/tv_account_type_selector"
+        android:drawableTop="@drawable/layer_img_zhifubao"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/zhifubao"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_xinyongka"
+        app:layout_constraintTop_toTopOf="@id/tv_xianjin" />
+
+    <TextView
+        android:id="@+id/tv_weixinzhifu"
+        android:layout_width="wrap_content"
+        android:background="@drawable/tv_account_type_selector"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:drawableTop="@drawable/layer_img_wechat"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/weixingzhifu"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_xianjin"
+        app:layout_constraintStart_toStartOf="@id/tv_xianjin"
+        app:layout_constraintTop_toBottomOf="@id/tv_xianjin" />
+
+    <TextView
+        android:id="@+id/tv_jingdongjinrong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tv_account_type_selector"
+        android:layout_gravity="center_horizontal"
+        android:drawableTop="@drawable/layer_img_jdfinance"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/jingdongjinrong"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_chuxuka"
+        app:layout_constraintStart_toStartOf="@id/tv_chuxuka"
+        app:layout_constraintTop_toTopOf="@id/tv_weixinzhifu" />
+
+    <TextView
+        android:id="@+id/tv_qita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:drawableTop="@drawable/layer_img_others"
+        android:gravity="center"
+        android:background="@drawable/tv_account_type_selector"
+        android:includeFontPadding="false"
+        android:text="@string/qita"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/tv_xinyongka"
+        app:layout_constraintStart_toStartOf="@id/tv_xinyongka"
+        app:layout_constraintTop_toTopOf="@id/tv_jingdongjinrong" />
+
+    <TextView
+        android:id="@+id/tv_accountName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zhanghumingcheng"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/et_accountName"
+        app:layout_constraintStart_toStartOf="@id/tv_accountType"
+        app:layout_constraintTop_toTopOf="@id/et_accountName"
+        app:layout_constraintBottom_toBottomOf="@id/et_accountName"/>
+
+    <EditText
+        android:id="@+id/et_accountName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingTop="15dp"
+        android:singleLine="true"
+        android:textColor="@color/textSecondary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/et_accountMoney"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_accountName"
+        app:layout_constraintTop_toBottomOf="@id/tv_qita" />
+
+
+    <TextView
+        android:id="@+id/tv_accountMoney"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zhanghuyue"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@id/et_accountMoney"
+        app:layout_constraintStart_toStartOf="@id/tv_accountName"
+        app:layout_constraintTop_toTopOf="@id/et_accountMoney"
+        app:layout_constraintBottom_toBottomOf="@id/et_accountMoney"/>
+
+    <EditText
+        android:id="@+id/et_accountMoney"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:inputType="numberDecimal"
+        android:paddingTop="15dp"
+        android:singleLine="true"
+        android:textColor="@color/textSecondary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/et_accountNote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_accountMoney"
+        app:layout_constraintTop_toBottomOf="@id/et_accountName"/>
+
+    <TextView
+        android:id="@+id/tv_accountNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/zhanghubeizhu"
+        android:textColor="@color/textPrimary"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@id/tv_accountName"
+        app:layout_constraintEnd_toStartOf="@id/et_accountNote"
+        app:layout_constraintTop_toTopOf="@id/et_accountNote"
+        app:layout_constraintBottom_toBottomOf="@id/et_accountNote"/>
+
+    <EditText
+        android:id="@+id/et_accountNote"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:paddingTop="15dp"
+        android:singleLine="true"
+        android:textColor="@color/textSecondary"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/tv_accountNote"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_accountMoney"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="200dp"/>
+
+    <Button
+        android:id="@+id/btn_ok"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/btn_green_background"
+        android:text="@string/queren"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
