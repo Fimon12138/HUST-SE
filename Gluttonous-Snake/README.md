@@ -10,6 +10,6 @@ C语言课程设计，重现了经典的贪吃蛇小游戏，文本界面。
 
 运行截图如下：
 
-![初始界面](https://github.com/Fimon12138/Gluttonous-Snake/raw/master/pics/pic1.png)
+![初始界面](pics/pic1.png)
 
-![游戏界面](https://github.com/Fimon12138/Gluttonous-Snake/raw/master/pics/pic2.png)
+![游戏界面](pics/pic2.png)
