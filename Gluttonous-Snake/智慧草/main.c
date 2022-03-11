@@ -1,4 +1,4 @@
-#include"1.c"
+#include"basic.c"
 #include"BFSandDFS.c"
 void pathBFS(point v){
 	if(map[v.x][v.y].condition==START){
@@ -41,11 +41,11 @@ void pathBFS(point v){
 	}
 }
 int main(){
-	printf("ÇëÊäÈëµØÍ¼¹æ¸ñ£º");
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½");
 	scanf("%d %d",&n,&m);
 	int i,j;
 	char c;
-	printf("ÇëÊäÈëµØÍ¼£º\n");
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½\n");
 	c=getchar();
 	for(i=0;i<n;i++)
 		for(j=0;j<m;j++){
